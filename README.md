@@ -1,0 +1,1 @@
+# stariyrei.github.io
