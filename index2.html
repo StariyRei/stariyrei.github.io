@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Перемещение кнопки</title>
+<style>
+    /* Стили для кнопок */
+    .buttonContainer {
+        position: relative;
+    }
+
+    .moveButton {
+        position: absolute;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #moveButton {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #staticButton {
+        top: 20%;
+        left: 20%;
+    }
+</style>
+</head>
+<body>
+    <!-- Контейнер для кнопок -->
+    <div class="buttonContainer">
+        <!-- Кнопка для перемещения -->
+        <button id="moveButton" class="moveButton">Нажми, чтобы переместить</button>
+        <!-- Статическая кнопка -->
+        <button id="staticButton" class="moveButton">Я остаюсь на месте</button>
+    </div>
+
+    <script>
+        // Получаем кнопку для перемещения по id
+        var moveButton = document.getElementById("moveButton");
+
+        // Функция для перемещения кнопки
+        function moveButtonFunction() {
+            // Генерируем случайные координаты для нового расположения кнопки
+            var newX = Math.floor(Math.random() * (window.innerWidth - moveButton.offsetWidth));
+            var newY = Math.floor(Math.random() * (window.innerHeight - moveButton.offsetHeight));
+
+            // Устанавливаем новые координаты для кнопки
+            moveButton.style.left = newX + "px";
+            moveButton.style.top = newY + "px";
+        }
+
+        // Добавляем обработчик события на клик по кнопке для перемещения
+        moveButton.addEventListener("click", moveButtonFunction);
+    </script>
+</body>
+</html>

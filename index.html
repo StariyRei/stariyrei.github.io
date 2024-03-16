@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Две кнопки</title>
+<style>
+    /* Стили для кнопок */
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(/banana-crying-cat.gif); /* Изначальный фон */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+
+    <!-- Контейнер для кнопок -->
+    <div class="buttonContainer">
+        <!-- Кнопка "Да" для смены фона -->
+        <button id="yesButton" class="button">Да</button>
+            <h1 class="h1">Ты любишь меня?</h1>
+        <!-- Кнопка "Нет" для перемещения -->
+        <button id="noButton" class="button">Нет</button>
+    </div>
+
+
+
+    <script>
+        // Получаем кнопку "Нет" по id
+        var noButton = document.getElementById("noButton");
+        var body = document.querySelector("body");
+
+        // Функция для перемещения кнопки "Нет"
+        function moveNoButton() {
+            // Генерируем случайные координаты для нового расположения кнопки "Нет"
+            var newX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            var newY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+
+            // Устанавливаем новые координаты для кнопки "Нет"
+            noButton.style.left = newX + "px";
+            noButton.style.top = newY + "px";
+        }
+
+        // Добавляем обработчик события на клик по кнопке "Нет" для перемещения
+        noButton.addEventListener("click", moveNoButton);
+
+        // Получаем кнопку "Да" по id
+        var yesButton = document.getElementById("yesButton");
+
+        // Функция для смены заднего фона
+        function changeBackground() {
+            // Меняем фон
+            document.body.style.backgroundImage = "url(../3Ypj.gif)";
+        }
+
+        // Добавляем обработчик события на клик по кнопке "Да" для смены фона
+        yesButton.addEventListener("click", changeBackground);
+    </script>
+</body>
+</html>
